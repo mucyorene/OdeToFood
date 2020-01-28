@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OdeToFood.Models;
 
 namespace OdeToFood.Services
@@ -13,6 +16,9 @@ namespace OdeToFood.Services
         Restaurant Get(int id);
 
         void Add(Restaurant newRestaurant);
+
+        void Delete(int id);
+        void Update(int id,Restaurant restaurant);
     }
     
     //SQLRestaurantData holds the actual implementation of the IRestaurantData Interface of how
@@ -21,6 +27,7 @@ namespace OdeToFood.Services
     public class SqlRestaurantData : IRestaurantData
     {
         private readonly OdeToFoodDbContext _context;
+        
 
         public SqlRestaurantData(OdeToFoodDbContext context)
         {
@@ -40,6 +47,25 @@ namespace OdeToFood.Services
         {
             _context.Add(newRestaurant);
             _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            Restaurant restaurant;
+            restaurant = _context.Restaurants.FirstOrDefault(r => r.Id == id);
+            _context.Remove(restaurant);
+            _context.SaveChanges();
+        }
+
+        public void Update(int id,Restaurant restaurant)
+        {
+            Restaurant rest;
+            rest = _context.Restaurants.FirstOrDefault(r => r.Id == id);
+            rest = restaurant;
+            
+            _context.Update(rest);
+            _context.SaveChanges();
+            
         }
     }
 
@@ -73,8 +99,24 @@ namespace OdeToFood.Services
             newRestaurant.Id = _restaurants.Max(r => r.Id) + 1;
             _restaurants.Add(newRestaurant);
         }
+     
+        public void Delete(int id)
+        {
+            Restaurant restaurant;
+            restaurant = _restaurants.FirstOrDefault(r => r.Id == id);
+            _restaurants.Remove(restaurant);
+        }
+        public void Update(int id,Restaurant restaurant)
+        {
+            Restaurant rest;
+            rest = _restaurants.FirstOrDefault(r => r.Id == id);
+            rest = restaurant;
+            
+            var index = _restaurants.FindIndex(c => c.Id == 1);
+            _restaurants[index] = rest;
+            
+        }
         
-
         static List<Restaurant> _restaurants;
     }
 }
