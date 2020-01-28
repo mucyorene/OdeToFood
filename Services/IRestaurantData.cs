@@ -112,7 +112,7 @@ namespace OdeToFood.Services
             rest = _restaurants.FirstOrDefault(r => r.Id == id);
             rest = restaurant;
             
-            var index = _restaurants.FindIndex(c => c.Id == 1);
+            var index = _restaurants.FindIndex(c => c.Id == id);
             _restaurants[index] = rest;
             
         }
