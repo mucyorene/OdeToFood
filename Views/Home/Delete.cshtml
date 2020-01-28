@@ -1,0 +1,16 @@
+@model OdeToFood.Models.Restaurant
+
+@{
+     Layout = "~/Pages/Shared/_Layout.cshtml";
+ }
+ 
+
+     @*You should change this form and use razor tags*@
+        
+<div class="row"><img width="100%" src="~/header.png"/></div>
+<div class="row">
+    <div class="col-md-2"></div><div class="col-md-8">
+        <label>Restyaurant name : @Model.Name</label><br/>
+        <label>Cuisine Type : @Model.Cuisine</label>
+    </div>
+     </div><div class="col-md-2"></div>

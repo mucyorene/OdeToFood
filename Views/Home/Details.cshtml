@@ -1,0 +1,22 @@
+@model OdeToFood.Models.Restaurant
+
+@{
+     Layout = "~/Pages/Shared/_Layout.cshtml";
+ }
+
+<div class="row"><img width="100%" src="~/header.png"/></div>
+<div class="row">
+    <div class="col-md-2"></div><div class="col-md-8">
+        <div class="text-center"><h3 style="color: #2270C0;">Restaurant</h3></div>
+        <table class="table">
+            <tr><td>Restaurant Name :</td><td>@Model.Name</td></tr>
+            <tr><td>Restaurant Cuisine type: </td><td>@Model.Name</td></tr>
+            <tr><td colspan="2">@Html.ActionLink("View All Restaurants", "Index","Home")</td></tr>
+        </table>
+    </div>
+    
+     </div><div class="col-md-2"></div>
+
+
+
+

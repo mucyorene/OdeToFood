@@ -1,0 +1,44 @@
+@using Microsoft.EntityFrameworkCore.Infrastructure
+@using OdeToFood.Models
+@model OdeToFood.Models.Restaurant
+
+ 
+ @{
+     Layout = "~/Pages/Shared/_Layout.cshtml";
+ }
+ 
+
+     @*You should change this form and use razor tags*@
+        
+<div class="row"><img width="100%" src="~/header.png"/></div>
+<div class="row">
+    <div class="col-md-2"></div><div class="col-md-8">
+        <div class="text-center"><h3 style="color: #2270C0;">Add Restaurant</h3></div>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" name="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cuisine" class="control-label"></label>
+                <select asp-for="Cuisine" name="Cuisine" class="form-control">
+
+                    @foreach (CuisineType c in (CuisineType[]) Enum.GetValues(typeof(CuisineType)))
+                    {
+
+                        <option value="@Convert.ToInt32(c)">@c</option>
+
+                    }
+                </select>
+                <span asp-validation-for="Cuisine" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" asp-for="" value="Save" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+     </div><div class="col-md-2"></div>
+    

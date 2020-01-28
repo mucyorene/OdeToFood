@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/gilberttuyishime/Documents/CST Year 3/NOTES YEAR 3/C#/EF_Core_Sqlite_ASP.NetCore_MVC-master/OdeToFood/OdeToFood.csproj": {}
+  },
+  "projects": {
+    "/Users/gilberttuyishime/Documents/CST Year 3/NOTES YEAR 3/C#/EF_Core_Sqlite_ASP.NetCore_MVC-master/OdeToFood/OdeToFood.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gilberttuyishime/Documents/CST Year 3/NOTES YEAR 3/C#/EF_Core_Sqlite_ASP.NetCore_MVC-master/OdeToFood/OdeToFood.csproj",
+        "projectName": "OdeToFood",
+        "projectPath": "/Users/gilberttuyishime/Documents/CST Year 3/NOTES YEAR 3/C#/EF_Core_Sqlite_ASP.NetCore_MVC-master/OdeToFood/OdeToFood.csproj",
+        "packagesPath": "/Users/gilberttuyishime/.nuget/packages/",
+        "outputPath": "/Users/gilberttuyishime/Documents/CST Year 3/NOTES YEAR 3/C#/EF_Core_Sqlite_ASP.NetCore_MVC-master/OdeToFood/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/gilberttuyishime/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite.Core": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
