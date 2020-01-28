@@ -2,6 +2,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OdeToFood.Models;
 using OdeToFood.Services;
 using OdeToFood.ViewModels;
@@ -62,5 +63,50 @@ namespace OdeToFood.Controllers
 
             return View(resto);
         }
+
+        public IActionResult Delete(int id)
+        {
+            var resto = _restaurantData.Get(id);
+            
+            if (ModelState.IsValid)
+            {
+                _restaurantData.Delete(id);
+                return RedirectToAction("Index", "Home"); // TODO :fix redirection to details
+            }
+
+            if (resto == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        
+        public IActionResult Edit(int id,Restaurant restaurant)
+        {
+            var resto = _restaurantData.Get(id);
+            if (resto == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var r = new Restaurant
+                {
+                    Id = id,
+                    Name = restaurant.Name,
+                    Cuisine = restaurant.Cuisine
+
+                };
+                _restaurantData.Update(id,r);
+                
+            }
+            
+            return View(resto);
+        }
+
+       
+        
     }
 }
